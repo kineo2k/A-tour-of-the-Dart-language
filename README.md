@@ -19,21 +19,19 @@ void main() {
 }
 ```
 
-[DartPad로 보기](https://dartpad.dev/?id=71448afab00f1b4ded8a50e3fdaa397c)
+{% embed url="https://dartpad.dev/?id=71448afab00f1b4ded8a50e3fdaa397c" %}
 
-
-
-이 예제는 <mark style="color:blue;">Dart</mark> 프로그램에 대해 많은 것을 알려줍니다.
+이 예제는 <mark style="color:red;">Dart</mark> 프로그램에 대해 많은 것을 알려줍니다.
 
 <mark style="color:green;">`// 이건 주석입니다.`</mark>\ <mark style="color:green;">``</mark>한 줄짜리 주석입니다. 컴파일러는 <mark style="color:green;">`//`</mark>부터 줄 끝까지를 무시합니다.\
 <mark style="color:green;">`/* ... */`</mark>을 이용해 여러 줄 주석을 표현합니다. 컴파일러는 <mark style="color:green;">`/*`</mark> 부터 <mark style="color:green;">`*/`</mark> 사이에 모든 내용을 무시합니다.\
 문서 주석은 <mark style="color:green;">`///`</mark> 또는 <mark style="color:green;">`/**`</mark>으로 시작합니다. 보다 자세한 내용은 [여기](https://dart.dev/guides/language/effective-dart/documentation#doc-comments)를 참고하세요.
 
 <mark style="color:green;">`void`</mark>\
-반환값을 사용하지 않을 경우를 나타내는 특수한 타입입니다. <mark style="color:green;">`printInteger`</mark>와 <mark style="color:green;">`main`</mark>함수는 명시적인 반환값이 없으므로 void 반환값 타입을 갖습니다.
+반환값을 사용하지 않을 경우를 나타내는 특수한 타입입니다. <mark style="color:green;">`printInteger`</mark>와 <mark style="color:green;">`main`</mark>함수는 명시적인 반환값이 없으므로 <mark style="color:green;">`void`</mark> 반환값 타입을 갖습니다.
 
 <mark style="color:green;">`int`</mark>\
-정수 타입을 나타냅니다. <mark style="color:blue;">Dart</mark> 언어는 <mark style="color:green;">`String, List, bool`</mark> 등  [기본 타입(built-in types)](https://dart.dev/guides/language/language-tour#built-in-types) 제공합니다.
+정수 타입을 나타냅니다. <mark style="color:red;">Dart</mark> 언어는 <mark style="color:green;">`String, List, bool`</mark> 등  [기본 타입(built-in types)](https://dart.dev/guides/language/language-tour#built-in-types) 제공합니다.
 
 <mark style="color:green;">`42`</mark>\
 숫자 리터럴(Literal)입니다. 리터럴은 일종의 컴파일 타임 상수(compile-time constant)입니다.
