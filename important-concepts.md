@@ -87,3 +87,40 @@ void main() {
 ```
 
 {% embed url="https://dartpad.dev/?id=24996280a41f9820ccc62a6cfae50897" %}
+
+### Object 또는 dynamic을 이용해 모든 타입을 수용 수 있습니다.
+
+명시적으로 어떤 타입이든 허용하고 싶다면 <mark style="color:green;">`Object?, Object, dynamic`</mark>을 사용할 수 있습니다. 특히 dynamic은 REST API 이용한 데이터 불러오기 처럼 반드시 런타임(Runtime)에 타입 체킹을 해야하는 상황에서 유용하게 사용할 수 있습니다. 하지만, 컴파일 타임 타입 검사를 통한 장점이 사라지므로 반드시 필요한 경우에만 사용하는 것을 추천합니다.
+
+### 제네릭을 지원합니다.
+
+제네릭(Generic) 타입을 지원합니다. <mark style="color:green;">`List<int>`</mark>는 정수 리스트를 표현합니다.
+
+### 다양한 함수 사용을 지원합니다.
+
+* <mark style="color:green;">`main()`</mark> 함수와 같은 최상위 레벨 함수
+* 클래스에 연결된 <mark style="color:green;">`static`</mark> 메서드
+* 객체에 연결된 인스턴스 메서드
+* 함수 안에서 함수를 정의하고 반환할 수 있음
+
+### 다양한 변수 사용을 지원합니다.
+
+* 최상위 레벨 변수
+* 클래스에 연결된 <mark style="color:green;">`static`</mark> 변수
+* 객체에 연결된 인스턴스 변수
+
+### 식별자 명명 규칙이 존재합니다.
+
+변수 및 함수 식별자(Identifiers)는 문자 또는 밑줄(<mark style="color:green;">`_`</mark>)로 시작해야 합니다. 이어서 문자와 숫자 조합을 사용할 수 있습니다.
+
+### 접근 제한자를 지원하지 않습니다.
+
+다른 언어에서 지원하는 <mark style="color:green;">`public, protected, private`</mark> 같은 접근 제한자를 지원하지 않습니다. 대신에 변수 또는 함수 식별자가 밑줄(<mark style="color:green;">`_`</mark>)로 시작하면 해당 라이브러리에 대해 비공개로 설정됩니다. 보다 자세한 내용은 [여기](https://dart.dev/guides/language/language-tour#libraries-and-visibility)를 참고해주세요.
+
+### 표현식과 명령문을 모두 가지고 있습니다.
+
+런타임에 값을 갖는 표현식(Expressions)과 값을 갖지 않는 명령문(Statements)을 모두 가지고 있습니다. 예로, 삼항 연산자 (<mark style="color:green;">`condition ? expr1 : expr2`</mark>)와 <mark style="color:green;">`if-else`</mark>문을 들 수 있습니다. <mark style="color:green;">`expr1, expr2`</mark>가 값이므로 삼항 연산자의 결과도 값인데 반해, if-else 문은 값을 갖지 않습니다. 명령문은 표현식을 포함할 수 있지만, 표현식은 명령문을 포함할 수 없습니다.
+
+### Dart의 도구는 경고와 오류라는 두 종류의 문제를 보고합니다.
+
+경고(Warnings)는 코드가 정상적으로 동작하지 않을 수 있다는 표현일 뿐 프로그램이 동작하는 것을 막지 않습니다. 오류(Errors)는 컴파일 타임과 런타임 오류가 있습니다. 컴파일 타임 오류는 프로그램이 실행될 수 없도록 막습니다. 런타임 오류는 프로그램이 실행되는 도중에 예외(Exception)를 발생 시킵니다.
