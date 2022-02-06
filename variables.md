@@ -142,3 +142,25 @@ late String temperature = _readThermometer(); // 게으른 초기화
 ```
 
 ### final과 const
+
+변수를 변경하고 싶지 않다면 <mark style="color:green;">`var`</mark> 대신 <mark style="color:green;">`final`</mark> 또는 <mark style="color:green;">`const`</mark>를 사용해주세요. <mark style="color:green;">`final`</mark>변수는 한번만 할당할 수 있도록 합니다. <mark style="color:green;">`const`</mark> 변수는 컴파일 타임 상수(Compile-time constant)입니다. <mark style="color:green;">`const`</mark> 변수는 암묵적으로 <mark style="color:green;">`final`</mark> 변수입니다.
+
+{% hint style="info" %}
+인턴스 변수는 <mark style="color:green;">`final`</mark> 변수일 수 있지만 <mark style="color:green;">`const`</mark> 변수일 수 없습니다.
+{% endhint %}
+
+<mark style="color:green;">`final`</mark> 변수는 아래와 같이 선언하고 초기화 합니다. <mark style="color:green;">`final`</mark> 변수를 재할당 하려고 시도하면 컴파일 에러가 발생합니다.
+
+```dart
+main() {
+  final name = 'Bob'; // 타입 선언을 생략할 수 있습니다.
+  final String nickname = 'Bobby';
+  
+  // final 변수를 재할당 하려고 시도하면 에러가 발생합니다.
+  // Error: Can't assign to the final variable 'name'.
+  name = 'Gump';
+}
+```
+
+컴일 타임 상수로 만들고 싶다면 <mark style="color:green;">`const`</mark>를 사용합니다. <mark style="color:green;">`const`</mark> 변수가 클래스 수준에 존재한다면, <mark style="color:green;">`static const`</mark>로 표현합니다. 숫자나 문자열 리터럴, 상수간의 연산 결과 등은 컴파일 타임 상수로 설정할 수 있습니다.
+
