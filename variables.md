@@ -44,6 +44,7 @@ int lineCount = 0;
 
 ```dart
 import 'dart:convert';
+import 'dart:math';
 
 String poemFlower = """꽃 - 김춘수
 
@@ -69,11 +70,11 @@ String poemFlower = """꽃 - 김춘수
 
 void main() {
   int lineCount;
-  
+
   // Error: Non-nullable variable 'lineCount' must be assigned before it can be used.
   // print(lineCount);
 
-  bool weLikeToCount = true;
+  bool weLikeToCount = nextBoolean();
   if (weLikeToCount) {
     lineCount = countLines(poemFlower);
   } else {
@@ -84,9 +85,14 @@ void main() {
   print(lineCount);
 }
 
+bool nextBoolean() {
+  return Random().nextBool();
+}
+
 int countLines(String text) {
   return LineSplitter().convert(text).length;
 }
+
 ```
 
 최상위 변수와 클래스 변수는 게으른 초기화(Lazily initialized)를 합니다. 해당 변수들은 최초로 사용되는 시점에 초기화 됩니다.
