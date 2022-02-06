@@ -140,3 +140,5 @@ void printDescription() {
 ```dart
 late String temperature = _readThermometer(); // 게으른 초기화
 ```
+
+### final과 const
