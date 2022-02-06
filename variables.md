@@ -96,3 +96,14 @@ int countLines(String text) {
 ```
 
 최상위 변수와 클래스 변수는 게으른 초기화(Lazily initialized)를 합니다. 해당 변수들은 최초로 사용되는 시점에 초기화 됩니다.
+
+### late 변수
+
+<mark style="color:red;">Dart</mark> 2.12 버전에서 <mark style="color:green;">`late`</mark> 제어자(Modifier)가 추가되었으며, 아래 두 가지 경우에 사용합니다.
+
+* Non-nullable 변수를 선언만 하고 초기화하지 않는 경우
+* 변수가 게으른 초기화를 하는 경우
+
+<mark style="color:red;">Dart</mark> 컴파일러의 제어 흐름 분석은 non-nullable 변수가 사용되기 전에 <mark style="color:green;">`null`</mark>이 아님을 알 수 있습니다. 하지만 최상위 변수와 인스턴스 변수의 경우 분석이 실패할 수 있습니다. 위 예제에서도 <mark style="color:green;">`lineCount`</mark>가 초기화되기 전에 <mark style="color:green;">`print()`</mark>에 전달했는데, 이 경우 컴파일 에러가 발생합니다.
+
+프
