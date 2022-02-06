@@ -106,4 +106,37 @@ int countLines(String text) {
 
 <mark style="color:red;">Dart</mark> 컴파일러의 제어 흐름 분석은 non-nullable 변수가 사용되기 전에 <mark style="color:green;">`null`</mark>이 아님을 알 수 있습니다. 하지만 최상위 변수와 인스턴스 변수의 경우 분석이 실패할 수 있습니다. 위 예제에서도 <mark style="color:green;">`lineCount`</mark>가 초기화되기 전에 <mark style="color:green;">`print()`</mark>에 전달했는데, 이 경우 컴파일 에러가 발생합니다.
 
-프
+변수가 사용되기 전에 반드시 초기화 된다는 사실을 알고 있다면, <mark style="color:green;">`late`</mark> 제어자를 이용해 <mark style="color:red;">Dart</mark> 컴파일러에게 사실을 알릴 수 있습니다.
+
+```dart
+late String description;
+
+void main() {
+  description = 'Gump!';
+  printDescription();
+}
+
+void printDescription() {
+  // late 제어자를 추가 하지 않으면 컴파일 에러가 발생합니다.
+  // Error: Field 'description' should be initialized because its type 'String' doesn't allow null.
+  print(description);
+}
+```
+
+{% embed url="https://dartpad.dev/?id=bdee91ad2c4942e8efef1e93037b54eb" %}
+
+{% hint style="info" %}
+<mark style="color:green;">`late`</mark> 제어자를 추가한 변가 초기화에 실패했다면 변수 사용 시 런타임 에가 발생하므로 주의가 필요합니다.
+{% endhint %}
+
+<mark style="color:green;">`late`</mark> 제어자를 이용해 변수를 선언하면서 동시에 초기화하면 변수를 처음 사용하는 시점에 게으른 초기화를 수행합니다. 게으른 초기화는 몇 가지 경우 유용하게 사용할 수 있습니다.
+
+* 변수가 실제로 사용되지 않을 수 있는 경우
+* 변수 초기화 비용이 비싼 경우
+* 인스턴스 변수의 초기화를 진행 중인 상태에서 해당 인스턴스의 초기화 프로그램이 <mark style="color:green;">`this`</mark>에 접근이 필요한 경우
+
+아래 예제에서 <mark style="color:green;">`temperature`</mark> 변수는 사용되지 않기 때문에 변수 초기화를 위해서 값비싼 <mark style="color:green;">`_readThermometer()`</mark> 함수는 호출되지 않습니다.
+
+```dart
+late String temperature = _readThermometer(); // 게으른 초기화
+```
