@@ -5,3 +5,4 @@
 * [키워드](keywords.md)
 * [변수](variables.md)
 * [내장 타입](built-in-types.md)
+* [함수](functions.md)
