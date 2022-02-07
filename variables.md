@@ -143,13 +143,13 @@ late String temperature = _readThermometer(); // 게으른 초기화
 
 ### final과 const
 
-변수를 변경하고 싶지 않다면 <mark style="color:green;">`var`</mark> 대신 <mark style="color:green;">`final`</mark> 또는 <mark style="color:green;">`const`</mark>를 사용해주세요. <mark style="color:green;">`final`</mark>변수는 한번만 할당할 수 있도록 합니다. <mark style="color:green;">`const`</mark> 변수는 컴파일 타임 상수(Compile-time constant)입니다. <mark style="color:green;">`const`</mark> 변수는 암묵적으로 <mark style="color:green;">`final`</mark> 변수입니다.
+변수를 변경하고 싶지 않다면 <mark style="color:green;">`var`</mark> 대신 <mark style="color:green;">`final`</mark> 또는 <mark style="color:green;">`const`</mark>를 사용해주세요. <mark style="color:green;">`final`</mark>변수는 한번만 할당할 수 있도록 합니다. <mark style="color:green;">`const`</mark> 변수는 컴파일 타임 상수(Compile-time constant)입니다. <mark style="color:green;">`const`</mark> 변수는 값을 변경할 수 없고, 암묵적으로 <mark style="color:green;">`final`</mark>이기 때문에 재할당하는 것도 불가능합니다.
 
 {% hint style="info" %}
 인턴스 변수는 <mark style="color:green;">`final`</mark> 변수일 수 있지만 <mark style="color:green;">`const`</mark> 변수일 수 없습니다.
 {% endhint %}
 
-<mark style="color:green;">`final`</mark> 변수는 아래와 같이 선언하고 초기화 합니다. <mark style="color:green;">`final`</mark> 변수를 재할당 하려고 시도하면 컴파일 에러가 발생합니다.
+<mark style="color:green;">`final`</mark> 변수는 아래와 같이 선언하고 초기화 합니다. <mark style="color:green;">`final`</mark> 변수를 재할당 하려고 시도하면 컴파일 에러가 발생합니다. <mark style="color:green;">`final`</mark> 변수는 재할당할 수 없지만, 객체의 속성을 변경할 수는 있습니다.
 
 ```dart
 main() {
@@ -162,5 +162,55 @@ main() {
 }
 ```
 
-컴일 타임 상수로 만들고 싶다면 <mark style="color:green;">`const`</mark>를 사용합니다. <mark style="color:green;">`const`</mark> 변수가 클래스 수준에 존재한다면, <mark style="color:green;">`static const`</mark>로 표현합니다. 숫자나 문자열 리터럴, 상수간의 연산 결과 등은 컴파일 타임 상수로 설정할 수 있습니다.
+컴일 타임 상수로 만들고 싶다면 <mark style="color:green;">`const`</mark>를 사용합니다. <mark style="color:green;">`const`</mark> 변수가 클래스 수준에 존재한다면, <mark style="color:green;">`static const`</mark>로 표현합니다. 숫자나 문자열 리터럴, 상수간의 연산 결과 등은 컴파일 타임 상수로 설정할 수 있습니다. <mark style="color:green;">`const`</mark> 변수는 객체의 속성도 변경할 수 없습니다.
 
+```dart
+const second = 1;
+const minute = 60 * second;
+const hour = 60 * minute;
+```
+
+<mark style="color:green;">`const`</mark> 키워드는 상수 변수를 선언하는 것 외에 상수 값을 생성하거나, 상수 값을 생성하는 생성자를 선언할 수도 있습니다. 클래스 인스턴스 생성 시 <mark style="color:green;">`const`</mark>로 선언하면 해당 객체는 컴파일러에 의해서 최적화 됩니다. 컴파일러는 객체를 불변(Immutable)하게 만들고, 동일한 객체 생성에 대해서 같은 메모리를 가르키게 합니다.
+
+```dart
+class Fruit {
+  final String name;
+  
+  // 상수 생성자입니다.
+  const Fruit(this.name);
+}
+
+main() {
+  // 아래는 모두 상수 값을 생성합니다.
+  var banana = const Fruit("Banana");
+  final orange = const Fruit("Orange");
+  const orange2 = Fruit("Orange"); // 'const Fruit("Orange")'와 동일합니다.
+  
+  // orange와 orange2는 클래스 인스턴스이지만,
+  // 컴파일 타임 상수로 선언되어 동일한 하나의 객체를 가르킵니다.
+  // identical() 함수는 최상위 함수로 두 객체가 같은 객체인지를 검사합니다.
+  assert(identical(orange, orange2));
+  
+  // const를 사용하지 않은 'Fruit("Orange")'는 다른 객체입니다.
+  // Uncaught Error: Assertion failed
+  assert(identical(orange, Fruit("Orange")));
+  
+  // banana에 할당 값이 상수였어도 banana는 여전히 변수 이므로 재할당하는 것이 가능합니다.
+  banana = Fruit("BBanana");
+  
+  // 함수 호출 결과를 이용해 상수 값을 생성할 수 없습니다.
+  // Error: Not a constant expression.
+  var apple = const Fruit(() => "Apple");
+}
+```
+
+{% embed url="https://dartpad.dev/?id=e58450395ce90e6ccf781ee5a87ddf38" %}
+
+타입 검사(Type checks), 타입 케스트(Type Casts), 컬렉션 <mark style="color:green;">`if`</mark>, 전개 연산자(Spread operators) <mark style="color:green;">`..., ...?`</mark>를 사용해 상수를 정의할 수 있습니다.
+
+```dart
+const Object i = 3; // 정수값을 갖는 'const Object' 선언
+const list = [i as int]; // 타입 케스트
+const map = {if (i is int) i: 'int'}; // 컬렉션 if
+const set = {if (list is List<int>) ...list}; // 전개 연산자
+```
