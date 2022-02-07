@@ -10,3 +10,4 @@
 * [제어문](control-flow-statements.md)
 * [예외 처리](exceptions.md)
 * [클래스](classes.md)
+* [제네릭](generics.md)
