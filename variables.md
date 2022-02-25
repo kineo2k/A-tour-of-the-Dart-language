@@ -92,8 +92,9 @@ bool nextBoolean() {
 int countLines(String text) {
   return LineSplitter().convert(text).length;
 }
-
 ```
+
+{% embed url="https://dartpad.dev/?id=37f614becc313766ad5568e23a01209a" %}
 
 최상위 변수와 클래스 변수는 게으른 초기화(Lazily initialized)를 합니다. 해당 변수들은 최초로 사용되는 시점에 초기화 됩니다.
 
