@@ -12,6 +12,7 @@
   * [Set](built-in-types/sets.md)
   * [Map](built-in-types/maps.md)
   * [Runes](built-in-types/runes.md)
+  * [Symbol](built-in-types/symbols.md)
 * [함수](functions.md)
 * [연산자](operators.md)
 * [제어문](control-flow-statements.md)
