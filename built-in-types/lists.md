@@ -92,3 +92,56 @@ void main() {
 ```
 
 {% embed url="https://dartpad.dev/?id=fa44f2f0483ed8f6a38e41f517ee2d23" %}
+
+<mark style="color:green;">`List`</mark> 타입은 다양한 속성과 메서드를 제공하고 있습니다.
+
+```dart
+void main() {
+  var list = <String>["Gump", "Bob", "Edgar"];
+  print("List: $list");
+  print("타입: ${list.runtimeType}, 항목수: ${list.length}");
+  print("첫번째 아이템: ${list.first}, 마지막 아이템: ${list.last}");
+  print("빈 List 확인: ${list.isEmpty}, 아이템이 하나 이상 존재하는지 확인: ${list.isNotEmpty}");
+
+  list.add("Owen");
+  print("List: $list");
+
+  list.addAll(["Binary", "Johnny"]);
+  print("List: $list");
+  print("List 줄단위 출력:");
+  list.forEach(print);
+
+  list.sort();
+  print("List 정렬: $list");
+  print("List 역순: ${list.reversed}");
+
+  list.shuffle();
+  print("List 셔플: $list");
+
+  print("알파벳 B로 시작하는 이름 존재 확인: ${list.any((item) => item.startsWith("B"))}");
+  print("알파벳 B로 시작하는 이름 찾기: ${list.where((item) => item.startsWith("B"))}");
+  print("Bob 존재 확인: ${list.contains("Bob")}");
+  print("Bob 인덱스 확인: ${list.indexOf("Bob")}");
+
+  var dynamicList = <dynamic>[...list];
+  print("String List로 변환: ${dynamicList.cast<String>()}");
+
+  list.add("Gump");
+  print("Map으로 변환: ${list.asMap()}");
+  print("Set으로 변환: ${list.toSet()}");
+
+  list.remove("Gump");
+  print("List: $list");
+
+  list.removeAt(1);
+  print("List: $list");
+
+  list.removeRange(1, 3);
+  print("List: $list");
+
+  list.clear();
+  print("빈 List 확인: ${list.isEmpty}, 아이템이 하나 이상 존재하는지 확인: ${list.isNotEmpty}");
+}
+```
+
+{% embed url="https://dartpad.dev/?id=82a24d111b9d128dfd0a06f41be37cb8" %}

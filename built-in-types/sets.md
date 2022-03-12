@@ -61,3 +61,49 @@ void main() {
 ```
 
 {% embed url="https://dartpad.dev/?id=a4b7b52c2c5e9b4c8f44612833094659" %}
+
+<mark style="color:green;">`Set`</mark> 타입은 다양한 속성과 메서드를 제공하고 있습니다.
+
+```dart
+void main() {
+  var set = <String>{"Gump", "Bob", "Edgar"};
+  print("Set: $set");
+  print("타입: ${set.runtimeType}, 항목수: ${set.length}");
+  print("첫번째 아이템: ${set.first}, 마지막 아이템: ${set.last}");
+  print("빈 Set 확인: ${set.isEmpty}, 아이템이 하나 이상 존재하는지 확인: ${set.isNotEmpty}");
+
+  set.add("Owen");
+  print("Set: $set");
+
+  set.addAll(["Binary", "Johnny"]);
+  print("Set: $set");
+  print("Set 줄단위 출력:");
+  set.forEach(print);
+
+  set.add("Gump");
+  print("Set: $set");
+
+  print("알파벳 B로 시작하는 이름 존재 확인: ${set.any((item) => item.startsWith("B"))}");
+  print("알파벳 B로 시작하는 이름 찾기: ${set.where((item) => item.startsWith("B"))}");
+  print("Bob 존재 확인: ${set.contains("Bob")}");
+  print("Bob, Binary 존재 확인: ${set.containsAll(["Bob", "Binary"])}");
+
+  var set2 = <String>{"Bob", "Binary", "Boo", "Foo"};
+  print("교집합 조회: ${set.intersection(set2)}");
+
+  var set3 = <String>{"Boo", "Foo"};
+  print("합집합 조회: ${set.union(set3)}");
+
+  var dynamicSet = <dynamic>{...set};
+  print("String 리스트로 변환: ${dynamicSet.cast<String>()}");
+  print("List으로 변환: ${set.toList()}");
+
+  set.remove("Gump");
+  print("Set: $set");
+
+  set.clear();
+  print("빈 Set 확인: ${set.isEmpty}, 아이템이 하나 이상 존재하는지 확인: ${set.isNotEmpty}");
+}
+```
+
+{% embed url="https://dartpad.dev/?id=c958cbd57659a1ecb9114daeef92ac63" %}

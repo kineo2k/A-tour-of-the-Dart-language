@@ -78,3 +78,47 @@ void main() {
 ```
 
 {% embed url="https://dartpad.dev/?id=681e8c17610418cce41e03a260353994" %}
+
+<mark style="color:green;">`Map`</mark> 타입은 다양한 속성과 메서드를 제공하고 있습니다.
+
+```dart
+void main() {
+  var map = {
+    "KR": "KOREA",
+    "US": "USA",
+    "KP": "NORTH KOREA",
+    "FR": "FRANCE",
+    "FI": "FINLAND",
+  };
+
+  print("Map: $map");
+  print("타입: ${map.runtimeType}, 항목수: ${map.length}");
+  print("빈 Map 확인: ${map.isEmpty}, 아이템이 하나 이상 존재하는지 확인: ${map.isNotEmpty}");
+
+  print("Map 줄단위 출력:");
+  map.forEach((key, value) => print("{$key: $value}"));
+
+  print("KR 키 존재 확인: ${map.containsKey("KR")}");
+  print("KOREA 값 존재 확인: ${map.containsValue("KOREA")}");
+
+  map.putIfAbsent("JP", () => "JAPAN");
+  print("Map: $map");
+
+  map.putIfAbsent("JP", () => "('-');");
+  print("Map: $map");
+
+  map.update("FR", (value) => "$value Kiss");
+  print("Map: $map");
+
+  map.remove("FI");
+  print("Map: $map");
+
+  map.removeWhere((key, value) => value.contains("KOREA"));
+  print("Map: $map");
+
+  map.clear();
+  print("빈 Map 확인: ${map.isEmpty}, 아이템이 하나 이상 존재하는지 확인: ${map.isNotEmpty}");
+}
+```
+
+{% embed url="https://dartpad.dev/?id=14f51ec581234ae671d0f7fa2b448876" %}
