@@ -1,4 +1,4 @@
-# 숫자
+# 숫자 타입
 
 > [A tour of the Dart language](https://dart.dev/guides/language/language-tour) 페이지를 공부하면서 정리한 내용입니다.
 
@@ -82,7 +82,7 @@ void main() {
 
 {% embed url="https://dartpad.dev/?id=cc08f8608191c95575e2cb8e472156df" %}
 
-숫자 리터럴은 컴파일 타임 상수입니다. 컴파일 타임 상수로만 이루어진 산술 표현식의 평가 결과는 상수로 사용할 수 있습니다.
+숫자 리터럴은 컴파일 타입 상수입니다. 컴파일 타임 상수로만 이루어진 산술 표현식의 평가 결과는 상수로 사용할 수 있습니다.
 
 ```dart
 void main() {
