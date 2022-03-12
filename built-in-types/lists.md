@@ -85,7 +85,10 @@ void main() {
   var listOfStrings = ['#0', for (var i in listOfInts) '#$i'];
   print(listOfStrings);
 }
+
+<출력결과>
+[Home, Furniture, Plants, Outlet]
+[#0, #1, #2, #3]
 ```
 
 {% embed url="https://dartpad.dev/?id=fa44f2f0483ed8f6a38e41f517ee2d23" %}
-

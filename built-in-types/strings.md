@@ -65,7 +65,7 @@ multi-line string.\n""";
   print(s3);
 }
 
-<결과출력>
+<출력결과>
 You can create
 multi-line strings like this one.
 
