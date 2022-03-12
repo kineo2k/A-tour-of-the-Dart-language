@@ -62,7 +62,7 @@ void main() {
 
 {% embed url="https://dartpad.dev/?id=3e81659b571f5f4f2a7388fa55f6600a" %}
 
-* (3)으로 마킹한 키워드는 [비동기 지원](https://dart.dev/guides/language/language-tour#asynchrony-support)을 위한 키워드입니다. <mark style="color:green;">`await, yield`</mark>는 <mark style="color:green;">`async, async*, sync*`</mark>로 표시된 함수의 본문에서 식별자로 사용할 수 없습니다.
+* _(3)_으로 마킹한 키워드는 [비동기 지원](https://dart.dev/guides/language/language-tour#asynchrony-support)을 위한 키워드입니다. <mark style="color:green;">`await, yield`</mark>는 <mark style="color:green;">`async, async*, sync*`</mark>로 표시된 함수의 본문에서 식별자로 사용할 수 없습니다.
 
 ```dart
 void main() {
