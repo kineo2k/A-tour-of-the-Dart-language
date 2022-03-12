@@ -5,7 +5,7 @@
 * [키워드](keywords.md)
 * [변수](variables.md)
 * [내장 타입](built-in-types/README.md)
-  * [숫자](built-in-types/numbers.md)
+  * [숫자](built-in-types/undefined.md)
   * [문자열](built-in-types/strings.md)
   * [Boolean](built-in-types/booleans.md)
   * [List](built-in-types/lists.md)
