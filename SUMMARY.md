@@ -20,8 +20,6 @@
   * [익명 함수](functions/anonymous-functions.md)
   * [어휘 범위](functions/lexical-scope.md)
   * [클로저](functions/closures.md)
-  * [assert() 함수](functions/the-assert-function.md)
-  * [반환값](functions/return-values.md)
 * [연산자](operators.md)
 * [제어문](control-flow-statements.md)
 * [예외 처리](exceptions.md)
