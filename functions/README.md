@@ -29,3 +29,13 @@ sumWithoutType(a, b) {
 ```dart
 int sumWithType(int a, int b) => a + b;
 ```
+
+함수의 반환값 타입으로  <mark style="color:green;">`void`</mark>를 지정하지 않으면 모든 함수는 값을 반환합니다. 만약 반환 값을 명시하지 않는다면 암시적으로 <mark style="color:green;">`return null;`</mark>이 함수 끝에 추가됩니다.
+
+```
+void main() {
+  print(foo()); // null
+}
+
+foo() {}
+```
