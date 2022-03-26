@@ -106,23 +106,3 @@ double get right {
   return left + width;
 }
 ```
-
-#### 추상 메서드
-
-인스턴스 메서드와 getter, setter는 **추상 메서드(Abstract methods)**로 선언하여 **인터페이스**로 정의할 수 있습니다. 추상 메서드는 추상 클래스에만 존재할 수 있으며, 추상 클래스를 상속하는 쪽에서는 반드시 추상 메서드를 구현해야합니다. 추상 메서드로 선언하려면 메서드 바디 없이 <mark style="color:green;">`;`</mark>를 사용하면 됩니다.
-
-```dart
-abstract class Doer {
-  void doSomething();
-  
-  String get name;
-}
-
-class EffectiveDoer extends Doer {
-  void doSomething() {
-    // ...
-  }
-  
-  String get name => "";
-}
-```
