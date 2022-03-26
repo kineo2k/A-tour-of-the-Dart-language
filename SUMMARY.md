@@ -31,7 +31,7 @@
   * [생성자](classes/constructors.md)
   * [메서드](classes/methods.md)
   * [추상 클래스](classes/abstract-classes.md)
-  * [암묵적 인터페이스](classes/implicit-interfaces.md)
+  * [암시적 인터페이스](classes/implicit-interfaces.md)
   * [상속](classes/extending-a-class.md)
   * [확장 메서드](classes/extension-methods.md)
   * [열거형](classes/enumerated-types.md)
