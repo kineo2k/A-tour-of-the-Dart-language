@@ -29,12 +29,7 @@ class Point {
 
 **연산자(Operators)**는 특별한 이름을 갖는 인스턴스 메서드입니다. <mark style="color:red;">Dart</mark>에서는 아래 이름으로 연산자를 정의할 수 있습니다.
 
-| <mark style="color:green;">`<`</mark>  | <mark style="color:green;">`+`</mark>  | <mark style="color:green;">`\|`</mark> | <mark style="color:green;">`>>>`</mark> |   |
-| -------------------------------------- | -------------------------------------- | -------------------------------------- | --------------------------------------- | - |
-| <mark style="color:green;">`>`</mark>  | <mark style="color:green;">`/`</mark>  | <mark style="color:green;">`^`</mark>  | <mark style="color:green;">`[]`</mark>  |   |
-| <mark style="color:green;">`<=`</mark> | <mark style="color:green;">`~/`</mark> | <mark style="color:green;">`&`</mark>  | <mark style="color:green;">`[]=`</mark> |   |
-| <mark style="color:green;">`>=`</mark> | <mark style="color:green;">`*`</mark>  | <mark style="color:green;">`<<`</mark> | <mark style="color:green;">`~`</mark>   |   |
-| <mark style="color:green;">`-`</mark>  | <mark style="color:green;">`%`</mark>  | <mark style="color:green;">`>>`</mark> | <mark style="color:green;">`==`</mark>  |   |
+<table data-header-hidden><thead><tr><th width="150"></th><th width="150"></th><th width="150"></th><th width="150"></th><th data-hidden></th></tr></thead><tbody><tr><td><mark style="color:green;"><code>&#x3C;</code></mark></td><td><mark style="color:green;"><code>+</code></mark></td><td><mark style="color:green;"><code>|</code></mark></td><td><mark style="color:green;"><code>>>></code></mark></td><td></td></tr><tr><td><mark style="color:green;"><code>></code></mark></td><td><mark style="color:green;"><code>/</code></mark></td><td><mark style="color:green;"><code>^</code></mark></td><td><mark style="color:green;"><code>[]</code></mark></td><td></td></tr><tr><td><mark style="color:green;"><code>&#x3C;=</code></mark></td><td><mark style="color:green;"><code>~/</code></mark></td><td><mark style="color:green;"><code>&#x26;</code></mark></td><td><mark style="color:green;"><code>[]=</code></mark></td><td></td></tr><tr><td><mark style="color:green;"><code>>=</code></mark></td><td><mark style="color:green;"><code>*</code></mark></td><td><mark style="color:green;"><code>&#x3C;&#x3C;</code></mark></td><td><mark style="color:green;"><code>~</code></mark></td><td></td></tr><tr><td><mark style="color:green;"><code>-</code></mark></td><td><mark style="color:green;"><code>%</code></mark></td><td><mark style="color:green;"><code>>></code></mark></td><td><mark style="color:green;"><code>==</code></mark></td><td></td></tr></tbody></table>
 
 연산자 <mark style="color:green;">`==`</mark>만 존재하고 <mark style="color:green;">`!=`</mark>는 존재하지 않는 것을 볼 수 있는데, <mark style="color:green;">`!=`</mark>은 **syntactic sugar**이기 때문입니다. 예를 들어, <mark style="color:green;">`e1 != e2`</mark>는 <mark style="color:green;">`!(e1 == e2)`</mark>의 **syntactic sugar**입니다.
 
@@ -104,5 +99,25 @@ double get right => left + width;
 // 위와 동일한 코드
 double get right {
   return left + width;
+}
+```
+
+#### 추상 메서드
+
+인스턴스 메서드와 getter, setter는 **추상 메서드(Abstract methods)**로 선언하여 **인터페이스**로 정의할 수 있습니다. 추상 메서드는 추상 클래스에만 존재할 수 있으며, 추상 클래스를 상속하는 쪽에서는 반드시 추상 메서드를 구현해야합니다. 추상 메서드로 선언하려면 메서드 바디 없이 <mark style="color:green;">`;`</mark>를 사용하면 됩니다.
+
+```dart
+abstract class Doer {
+  void doSomething();
+  
+  String get name;
+}
+
+class EffectiveDoer extends Doer {
+  void doSomething() {
+    // ...
+  }
+  
+  String get name => "";
 }
 ```

@@ -2,7 +2,7 @@
 
 > [A tour of the Dart language](https://dart.dev/guides/language/language-tour) 페이지를 공부하면서 정리한 내용입니다.
 
-함수는 필요한 만큼의 **위치 매개변수(Positional parameters)**를 가질 수 있으며, 그 뒤에는 **명명된 매개변수(Named parameters)** 또는 **선택적 위치 매개변수(Optional positional parameters)**가 올 수 있습니다. [Flutter](https://flutter.dev)의 위젯 생성자 같은 API의 경우 필수 매개변수의 경우에도 명명된 매개변수만 사용합니다.
+함수는 필요한 만큼의 **위치 매개변수(Positional parameters)**를 가질 수 있으며, 그 뒤에는 **명명된 매개변수(Named parameters)** 또는 **선택적 위치 매개변수(Optional positional parameters)**가 올 수 있습니다. [Flutter](https://flutter.dev/)의 위젯 생성자 같은 API의 경우 필수 매개변수의 경우에도 명명된 매개변수만 사용합니다.
 
 함수에 인수를 전달하거나 함수 매개변수를 정의할 때 후행 쉼표를 사용할 수 있습니다. <mark style="color:red;">Dart</mark> 언어에서 기본으로 제공하는 [dart format](https://dart.dev/tools/dart-format) 커멘드라인 도구를 사용하면 후행 쉼표 유무에 따라 줄바꿈 처리가 다르게 적용됩니다.
 
